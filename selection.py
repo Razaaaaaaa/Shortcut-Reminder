@@ -26,6 +26,8 @@ label.pack(fill="both", expand=True)
 def change_text(new_text):
     label.config(text=new_text)
 
+    
+
 def on_text_caret_moved(event):
 
     if event.type == "object:text-caret-moved:system":
@@ -54,16 +56,17 @@ def on_text_caret_moved(event):
 
             caret_offset = accessible_text.caretOffset
 
-            line_text, line_start, line_end = (
-                accessible_text.getStringAtOffset(
-                    caret_offset,
-                    pyatspi.TEXT_GRANULARITY_LINE
-                )
+            line_text, line_start, line_end = accessible_text.getStringAtOffset(
+            selection_start,
+            pyatspi.TEXT_GRANULARITY_LINE
             )
+
 
             if (DEBUG) :
                 print("line_start", line_start, "line_end", line_end)
                 print("selection_start", selection_start, "selection_end", selection_end)
+                print("selection_content", selection_content)
+                print("line_text", line_text)
                 print("caret_offset", caret_offset)
 
             shortcuts = {
@@ -77,17 +80,14 @@ def on_text_caret_moved(event):
                 "CTRL + SHIFT + END" : (
                     caret_offset == accessible_text.characterCount
                 ),
-                "SHIFT + UP" : ( selection_end > line_start and selection_end > line_end ),
-                "SHIFT + DOWN" : ( selection_start < line_start and selection_start < line_end ),
-                "SHIFT + HOME": (
-                    caret_offset == line_start
-                    and selection_start < line_end
-                ),
-
                 "SHIFT + END": (
                     caret_offset == line_end
-                    and selection_start > line_start
                 ),
+                "SHIFT + HOME": (
+                    caret_offset == line_start
+                ),
+                "SHIFT + UP" : ( selection_end > line_start and selection_end > line_end ),
+                "SHIFT + DOWN" : ( selection_start < line_start and selection_start < line_end ),
 
                 "CTRL + SHIFT + LEFT": (
                     (
