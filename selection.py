@@ -27,9 +27,7 @@ def on_text_caret_moved(event):
                 accessible_text.characterCount
             )
 
-            selection_content = repr(
-                accessible_text.getText(selection_start, selection_end)
-            )
+            selection_content = accessible_text.getText(selection_start, selection_end)
 
             caret_offset = accessible_text.caretOffset
 
@@ -44,7 +42,7 @@ def on_text_caret_moved(event):
                 os.system('clear')
                 print("line_start", line_start, "line_end", line_end)
                 print("selection_start", selection_start, "selection_end", selection_end)
-                #print("selection_content", selection_content)
+                print("selection_content", selection_content)
                 #print("line_text", line_text)
                 print("caret_offset", caret_offset)
 
@@ -71,7 +69,7 @@ def on_text_caret_moved(event):
                 "CTRL + SHIFT + LEFT": (
                     (
                         full_content[max(caret_offset - 1, 0)] == " "
-                        or " " in selection_content
+                        or (" " in selection_content[1:] )
                     )
                     and caret_offset == selection_start
                 ),
@@ -79,7 +77,7 @@ def on_text_caret_moved(event):
                 "CTRL + SHIFT + RIGHT": (
                     (
                         full_content[min(caret_offset, accessible_text.characterCount-1)] == " "
-                        or " " in selection_content
+                        or (" " in selection_content[1:] )
                     )
                     and caret_offset == selection_end
                 ),
@@ -87,13 +85,13 @@ def on_text_caret_moved(event):
                 "SHIFT + RIGHT": (
                     (
                        
-                        " " not in selection_content
+                        " " not in selection_content[1:]
                     )
                     and caret_offset == selection_end
                 ),
                 "SHIFT + LEFT": (
                     (
-                         " " not in selection_content
+                         " " not in selection_content[1:]
                     )
                     and caret_offset == selection_start
                 )         
