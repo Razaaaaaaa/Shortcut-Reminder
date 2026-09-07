@@ -1,6 +1,7 @@
 import pyatspi
 import tkinter as tk
 import threading
+import os
 
 DEBUG = True 
 
@@ -57,16 +58,18 @@ def on_text_caret_moved(event):
             caret_offset = accessible_text.caretOffset
 
             line_text, line_start, line_end = accessible_text.getStringAtOffset(
-            selection_start,
-            pyatspi.TEXT_GRANULARITY_LINE
+                selection_end if selection_start == caret_offset else selection_start,
+                pyatspi.TEXT_GRANULARITY_LINE,
             )
 
 
+
             if (DEBUG) :
+                os.system('clear')
                 print("line_start", line_start, "line_end", line_end)
                 print("selection_start", selection_start, "selection_end", selection_end)
-                print("selection_content", selection_content)
-                print("line_text", line_text)
+                #print("selection_content", selection_content)
+                #print("line_text", line_text)
                 print("caret_offset", caret_offset)
 
             shortcuts = {
@@ -86,8 +89,8 @@ def on_text_caret_moved(event):
                 "SHIFT + HOME": (
                     caret_offset == line_start
                 ),
-                "SHIFT + UP" : ( selection_end > line_start and selection_end > line_end ),
-                "SHIFT + DOWN" : ( selection_start < line_start and selection_start < line_end ),
+                "SHIFT + UP" : ( caret_offset > line_start and caret_offset > line_end ),
+                "SHIFT + DOWN" : ( caret_offset < line_start and caret_offset < line_end ),
 
                 "CTRL + SHIFT + LEFT": (
                     (
