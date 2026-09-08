@@ -1,9 +1,6 @@
 import threading
-
-import atspi
-import overlay
-
-from detectors.selection import Selection
+from shortcut_reminder import atspi, overlay
+from shortcut_reminder.detectors.selection import Selection
 
 
 def start_atspi():

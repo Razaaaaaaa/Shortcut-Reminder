@@ -6,11 +6,11 @@ readme = "README.md"
 authors = [
     { name = "Raza", email = "contact@raza.tips" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = []
 
 [project.scripts]
-shortcut-reminder = "shortcut_reminder:main"
+shortcut-reminder = "shortcut_reminder.app:main"
 
 [build-system]
 requires = ["uv_build>=0.12.2,<0.13.0"]
