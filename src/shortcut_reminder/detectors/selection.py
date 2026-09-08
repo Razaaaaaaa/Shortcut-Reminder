@@ -66,11 +66,11 @@ class Selection(Detector):
                 ),
 
                 "SHIFT + END": (
-                    caret_offset == line_end
+                    caret_offset == line_end or full_content[caret_offset:line_end].isspace() and full_content[caret_offset-1] != " "
                 ),
 
                 "SHIFT + HOME": (
-                    caret_offset == line_start
+                    caret_offset == line_start or full_content[line_start:caret_offset].isspace() and full_content[caret_offset+1] != " "
                 ),
 
                 "SHIFT + UP": (
