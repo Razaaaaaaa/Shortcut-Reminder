@@ -1,0 +1,17 @@
+[project]
+name = "shortcut-reminder"
+version = "0.1.0"
+description = "Detect application events and provide contextual keyboard shortcut reminders."
+readme = "README.MD"
+authors = [
+    { name = "Raza", email = "contact@raza.tips" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+shortcut-reminder = "shortcut_reminder:main"
+
+[build-system]
+requires = ["uv_build>=0.12.2,<0.13.0"]
+build-backend = "uv_build"
