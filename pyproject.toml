@@ -2,7 +2,7 @@
 name = "shortcut-reminder"
 version = "0.1.0"
 description = "Detect application events and provide contextual keyboard shortcut reminders."
-readme = "README.MD"
+readme = "README.md"
 authors = [
     { name = "Raza", email = "contact@raza.tips" }
 ]
