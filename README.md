@@ -38,3 +38,10 @@ Please adhere to this project's `code of conduct`.
 ## Demo
 
 https://www.youtube.com/watch?v=vn0VPiDfoeE
+
+
+## Acknowledgements
+
+ - [Keyboard Keys Speedflips](https://github.com/q2apro/keyboard-keys-speedflips)
+
+
