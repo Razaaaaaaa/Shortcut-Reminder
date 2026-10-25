@@ -1,7 +1,7 @@
 
 # Shortcut Reminder
 <center>
-<img width="256" height="256" alt="image" src="assets/icons/logo.png" />
+<img width="256" height="256" alt="image" src="src/shortcut_reminder/assets/icons/logo.png" />
 </center>
 
 
