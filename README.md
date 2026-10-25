@@ -6,7 +6,7 @@
 
 
  
-![MIT License](https://img.shields.io/badge/License-MIT-green.svg) ![GPLv3 License](https://img.shields.io/badge/License-GPLv3-yellow.svg) ![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg) ![Matrix](https://img.shields.io/matrix/shortcut-reminder:matrix.org?label=Matrix&logo=matrix&color=0DBD8B)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg) ![Matrix](https://img.shields.io/matrix/shortcut-reminder:matrix.org?label=Matrix&logo=matrix&color=0DBD8B)
 
 A simple tool that reminds you of available keyboard shortcuts whenever you need them, helping you discover and use them without interrupting your workflow.
 
