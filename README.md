@@ -8,7 +8,7 @@
  
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg) ![Matrix](https://img.shields.io/matrix/shortcut-reminder:matrix.org?label=Matrix&logo=matrix&color=0DBD8B)
 
-A simple tool that reminds you of available keyboard shortcuts whenever you need them, helping you discover and use them without interrupting your workflow.
+A simple tool that reminds you of available keyboard shortcuts whenever you miss them, helping you learn and use them without interrupting your workflow.
 
 Works with applications that support the [Assistive Technology Service Provider Interface (AT-SPI)](https://www.freedesktop.org/wiki/Accessibility/AT-SPI2/), the primary accessibility infrastructure for free and open-source desktops.
 ## Roadmap
