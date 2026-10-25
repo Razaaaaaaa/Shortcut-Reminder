@@ -1,69 +1,40 @@
-# Shortcut Reminder POC 
 
-Prototype exploring the use of AT-SPI (Assistive Technology Service Provider Interface) to implement a shortcut reminder.
+# Shortcut Reminder
+<center>
+<img width="256" height="256" alt="image" src="assets/icons/logo.png" />
+</center>
 
-## Objective
 
-Investigate whether AT-SPI can be used to detect relevant application events and provide contextual reminders for keyboard shortcuts.
+ 
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg) ![GPLv3 License](https://img.shields.io/badge/License-GPLv3-yellow.svg) ![AGPLv3 License](https://img.shields.io/badge/License-AGPLv3-blue.svg) ![Matrix](https://img.shields.io/matrix/shortcut-reminder:matrix.org?label=Matrix&logo=matrix&color=0DBD8B)
 
-## selection.py
+A simple tool that reminds you of available keyboard shortcuts whenever you need them, helping you discover and use them without interrupting your workflow.
 
-- [x] `Ctrl+A` → Select all
-- [x] `Shift+Left` → Select previous character
-- [x] `Shift+Right` → Select next character
-- [x] `Shift+Up` → Select previous line
-- [x] `Shift+Down` → Select next line
-- [x] `Shift+Home` → Select to the beginning of the line
-- [x] `Shift+End` → Select to the end of the line
-- [x] `Ctrl+Shift+Left` → Select previous word
-- [x] `Ctrl+Shift+Right` → Select next word
-- [x] `Ctrl+Shift+Home` → Select to the beginning of the document
-- [x] `Ctrl+Shift+End` → Select to the end of the document
+Works with applications that support the [Assistive Technology Service Provider Interface (AT-SPI)](https://www.freedesktop.org/wiki/Accessibility/AT-SPI2/), the primary accessibility infrastructure for free and open-source desktops.
+## Roadmap
 
-## navigation.py
+- Support all system shortcuts
+- Create a polished, intuitive UI
 
-- [ ] `Left` → Previous character
-- [ ] `Right` → Next character
-- [ ] `Up` → Previous line
-- [ ] `Down` → Next line
-- [ ] `Home` → Beginning of line
-- [ ] `End` → End of line
-- [ ] `Ctrl+Left` → Previous word
-- [ ] `Ctrl+Right` → Next word
-- [ ] `Ctrl+Up` → Previous paragraph
-- [ ] `Ctrl+Down` → Next paragraph
-- [ ] `Ctrl+Home` → Beginning of text
-- [ ] `Ctrl+End` → End of text
-- [ ] `PageUp` → Previous page
-- [ ] `PageDown` → Next page
+## Support
 
-## editing.py
+If you’re having trouble with Shortcut Reminder, please open a ticket and include all the necessary information.
 
-- [ ] `Backspace` → Delete before the cursor
-- [ ] `Delete` → Delete after the cursor
-- [ ] `Ctrl+Backspace` → Delete previous word
-- [ ] `Ctrl+Delete` → Delete next word
-- [ ] `Enter` → New line / confirm
-- [ ] `Tab` → Tab / move to the next field
-- [ ] `Shift+Tab` → Move to the previous field
+You can also contact me on Matrix at @78dh:matrix.org.
 
-## clipboard.py
 
-- [ ] `Ctrl+C` → Copy
-- [ ] `Ctrl+X` → Cut
-- [ ] `Ctrl+V` → Paste
-- [ ] `Ctrl+Shift+V` → Paste without formatting, depending on the application
-- [ ] `Ctrl+A` → Select all
+## Contributing
 
-## undo-redo.py
+Contributions are always welcome!
 
-- [ ] `Ctrl+Z` → Undo
-- [ ] `Ctrl+Y` → Redo
-- [ ] `Ctrl+Shift+Z` → Redo, depending on the application
+See `contributing.md` for ways to get started.
 
-## search.py
+Please adhere to this project's `code of conduct`.
 
-- [ ] `Ctrl+F` → Find
-- [ ] `Ctrl+H` → Find and replace, depending on the application
-- [ ] `Ctrl+G` → Find next occurrence, depending on the application
-- [ ] `Ctrl+Shift+G` → Find previous occurrence, depending on the application
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Demo
+
+https://www.youtube.com/watch?v=vn0VPiDfoeE
