@@ -1,5 +1,6 @@
 import pyatspi
 from .detector import Detector
+from ..key import Key, KEY_ICONS
 
 class Selection(Detector):
 
@@ -52,38 +53,38 @@ class Selection(Detector):
             )
 
             shortcuts = {
-                "CTRL + A": (
+                (Key.CTRL, Key.A): (
                     selection_start == 0
                     and selection_end == accessible_text.characterCount
                 ),
 
-                "CTRL + SHIFT + HOME": (
+                (Key.CTRL, Key.SHIFT, Key.HOME): (
                     caret_offset == 0
                 ),
 
-                "CTRL + SHIFT + END": (
+                (Key.CTRL, Key.SHIFT, Key.END): (
                     caret_offset == accessible_text.characterCount
                 ),
 
-                "SHIFT + END": (
+                (Key.SHIFT, Key.END): (
                     caret_offset == line_end or full_content[caret_offset:line_end].isspace() and full_content[caret_offset-1] != " "
                 ),
 
-                "SHIFT + HOME": (
+                (Key.SHIFT, Key.HOME): (
                     caret_offset == line_start or full_content[line_start:caret_offset].isspace() and full_content[caret_offset+1] != " "
                 ),
 
-                "SHIFT + UP": (
+                (Key.SHIFT, Key.DOWN): (
                     caret_offset > line_start
                     and caret_offset > line_end
                 ),
 
-                "SHIFT + DOWN": (
+                (Key.SHIFT, Key.UP): (
                     caret_offset < line_start
                     and caret_offset < line_end
                 ),
 
-                "CTRL + SHIFT + LEFT": (
+                (Key.CTRL, Key.SHIFT, Key.LEFT): (
                     (
                         full_content[max(caret_offset - 1, 0)] == " "
                         or " " in selection_content[1:]
@@ -91,7 +92,7 @@ class Selection(Detector):
                     and caret_offset == selection_start
                 ),
 
-                "CTRL + SHIFT + RIGHT": (
+                (Key.CTRL,  Key.SHIFT, Key.RIGHT): (
                     (
                         full_content[
                             min(
@@ -104,12 +105,12 @@ class Selection(Detector):
                     and caret_offset == selection_end
                 ),
 
-                "SHIFT + RIGHT": (
+                (Key.SHIFT, Key.RIGHT): (
                     " " not in selection_content[1:]
                     and caret_offset == selection_end
                 ),
 
-                "SHIFT + LEFT": (
+                (Key.SHIFT, Key.LEFT): (
                     " " not in selection_content[1:]
                     and caret_offset == selection_start
                 ),
