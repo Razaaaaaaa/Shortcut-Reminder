@@ -1,27 +1,27 @@
 import threading
 from shortcut_reminder import atspi, overlay
 from shortcut_reminder.detectors.selection import Selection
-from shortcut_reminder.detectors.navigation import Navigation
+#from shortcut_reminder.detectors.navigation import Navigation
 
 
 def start_atspi():
     atspi.start()
 
 def main():
-    root, change_text = overlay.create_overlay()
+    root, show_input = overlay.create_overlay()
 
     selection = Selection()
-    navigation = Navigation()
+    #navigation = Navigation()
 
     detectors = [
         selection,
-        navigation,
+       # navigation,
     ]
 
     def create_on_event(detector):
         def on_event(event):
             result = detector.detect(event)
-            root.after(0, change_text, result)
+            root.after(0, show_input, result)
 
         return on_event
    
