@@ -17,6 +17,9 @@ class Navigation(Detector):
         if event.type == "object:text-caret-moved:system":
             return None
 
+
+        print(event)
+
         try:
             source = event.source
             accessible_text = source.queryText()

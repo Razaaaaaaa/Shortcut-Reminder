@@ -22,10 +22,10 @@ def load_key_icon(path: Path) -> Image.Image:
     with Image.open(path) as image:
         image = image.convert("RGBA")
         width, height = image.size
-        new_width = round(width * 60 / height)
+        new_width = round(width * 256 / height)
 
         return image.resize(
-            (new_width, 60),
+            (new_width, 256),
             Image.Resampling.LANCZOS,
         )
 

@@ -2,12 +2,14 @@ import tkinter as tk
 from .key import Key, KEY_ICONS
 from PIL import Image, ImageTk
 
-
 def create_overlay():
     root = tk.Tk()
     root.overrideredirect(True)
     root.attributes("-topmost", True)
+    root.wm_attributes("-alpha", 1)
     root.geometry("1000x70+0+0")
+    root.wait_visibility(root)
+    root.wm_attributes("-alpha", 0.3)
     root.configure(bg="white")
     root.withdraw()  
     frame = tk.Frame(root, bg="white")
@@ -16,19 +18,8 @@ def create_overlay():
     key_icons = [] 
     hide = None
 
-    def start_move(event):
-        root.x = event.x
-        root.y = event.y
+    def show_input(keys, duration=3000):
 
-    def move_window(event):
-        x = root.winfo_x() + event.x - root.x
-        y = root.winfo_y() + event.y - root.y
-        root.geometry(f"+{x}+{y}")
-
-    frame.bind("<Button-1>", start_move)
-    frame.bind("<B1-Motion>", move_window)
-
-    def show_input(keys, duration=15000):
         nonlocal hide
         nonlocal key_icons
 
@@ -39,10 +30,9 @@ def create_overlay():
             root.after_cancel(hide)
             hide = None
 
+        key_icons.clear()    
         for widget in frame.winfo_children():
             widget.destroy()
-
-        key_icons.clear()
 
         for i, key in enumerate(keys):
             key_icon_pil = KEY_ICONS.get(key)
@@ -63,12 +53,13 @@ def create_overlay():
                     bg="white"
                 ).pack(side="left", padx=2)
 
-        width = frame.winfo_reqwidth()
-        height = frame.winfo_reqheight()
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
 
+        x = (screen_width - frame.winfo_reqwidth()) // 2
+        y = (screen_height - frame.winfo_reqheight()) // 2
 
-        root.geometry(f"{width}x{height}")
-        root.deiconify()
+        root.geometry(f"{screen_width}x{frame.winfo_reqheight()}+0+{y}")
         hide = root.after(duration, root.withdraw)
-
+        root.deiconify()
     return root, show_input
